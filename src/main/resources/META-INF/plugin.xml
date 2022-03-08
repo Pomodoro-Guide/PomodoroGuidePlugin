@@ -19,11 +19,19 @@
 
     <actions>
         <!-- Add your actions here -->
+
         <group id="pomodoroGuide.groupActions" text="Pomodoro Guide">
             <add-to-group group-id="MainMenu" anchor="last"/>
-            <action class="com.tamusa.pomodoroGuide.startSession" id="pomodoroGuide.Actions.startSession" text="Start Session"/>
-            <action class="com.tamusa.pomodoroGuide.breakUI" id="pomodoroGuide.Actions.breakUI" text="Break UI"/>
+            <action class="com.tamusa.pomodoroGuide.startSession" id="pluginMenu" text="Start Session"/>
+            <action class="com.tamusa.pomodoroGuide.breakUI" id="breakMenu" text="Break UI"/>
 
         </group>
+
+        <!--
+        <action id="pluginMenu" class="com.tamusa.pomodoroGuide.startSession" text="Pomodoro Guide">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+        -->
+
     </actions>
 </idea-plugin>
