@@ -7,9 +7,6 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
 import com.tamusa.pomodoroGuide.Menu;
 
-
-
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -19,7 +16,6 @@ public class startSession extends AnAction {
                //Changes titles
                //super("Session Menu");
            }
-
      */
 
     public void actionPerformed(AnActionEvent e) {
@@ -27,11 +23,9 @@ public class startSession extends AnAction {
         Project project = e.getProject();
         Menu popup = new Menu(project);
         popup.show();
-
          */
         Menu.main();
 
     }
-
 
 }
