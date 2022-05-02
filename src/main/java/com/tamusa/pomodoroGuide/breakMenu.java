@@ -162,6 +162,7 @@ public class breakMenu extends JFrame {
                 breakframe.setLocationRelativeTo(null);
                 breakframe.setVisible(true);
                 breakframe.setResizable(true);
+                breakframe.setAlwaysOnTop(true);
                 breakframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             }
@@ -189,4 +190,3 @@ public class breakMenu extends JFrame {
 
 
 }
-

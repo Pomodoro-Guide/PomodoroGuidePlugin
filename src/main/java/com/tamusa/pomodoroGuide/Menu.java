@@ -16,7 +16,6 @@ public class Menu extends JFrame {
     private static  int POMODORO_CYCLE ; // No of rounds in a Pomodoro cycle.
     private static int currentRounds = 0;
 
-
     private Font timerStyle = new Font("MonoAlphabet", Font.BOLD, 100);
     private static Menu frame;
 
@@ -33,6 +32,7 @@ public class Menu extends JFrame {
     private JButton beginButton;
     private JButton enterButton;
     private JButton endSessionButton;
+    private JButton XButton;
 
     public Menu() {
         // Call super class constructor with a title
@@ -57,9 +57,6 @@ public class Menu extends JFrame {
         pane2.add(taskEntry);
         pane2.add(enterButton);
         add(pane2, BorderLayout.EAST);
-
-
-
 
         JLabel settingsLabel = new JLabel("Settings");
         JLabel workLabel= new JLabel("Work time: 25 ");
@@ -90,6 +87,8 @@ public class Menu extends JFrame {
         jRadioButton50.setText("50/10");
         jRadioButtonCustom.setText("Custom");
 
+        XButton = new JButton("X");
+
         startButton = new JButton("Start");
         startButton.setVisible(false);
 
@@ -109,13 +108,16 @@ public class Menu extends JFrame {
         minuteLabel.setForeground(Color.white);
 
         separator = new JLabel(":");
-       separator.setFont(timerStyle);
+        separator.setFont(timerStyle);
         separator.setForeground(Color.white);
 
         secondsLabel = new JLabel(String.format("%02d", ORIGINAL_COUNTDOWN_SECONDS));
         secondsLabel.setFont(timerStyle);
         secondsLabel.setForeground(Color.white);
 
+        c.gridx=6;
+        c.gridy=0;
+        pane.add(XButton);
 
         c.gridx=3;
         c.gridy=0;
@@ -215,7 +217,7 @@ public class Menu extends JFrame {
                     ORIGINAL_COUNTDOWN_SECONDS = 0;
                     breakTime = 10;
                 } else{
-                   // int userChoice = Integer.parseInt(workCustom.getText());
+                    // int userChoice = Integer.parseInt(workCustom.getText());
                     ORIGINAL_COUNTDOWN_MINUTES = Integer.parseInt(workCustom.getText());
                     ORIGINAL_COUNTDOWN_SECONDS = 0;
                     breakTime = Integer.parseInt(breakCustom.getText());
@@ -226,14 +228,14 @@ public class Menu extends JFrame {
                 roundsEntry.setEditable(false);
             }
             startCountDown(ORIGINAL_COUNTDOWN_MINUTES, ORIGINAL_COUNTDOWN_SECONDS );
-           countDown.start();
-           taskEntry.setVisible(false);
-           taskLabel.setVisible(false);
-           enterButton.setVisible(false);
-           beginButton.setVisible(false);
-           startButton.setVisible(true);
-           pauseButton.setVisible(true);
-           endSessionButton.setVisible(true);
+            countDown.start();
+            taskEntry.setVisible(false);
+            taskLabel.setVisible(false);
+            enterButton.setVisible(false);
+            beginButton.setVisible(false);
+            startButton.setVisible(true);
+            pauseButton.setVisible(true);
+            endSessionButton.setVisible(true);
         });
 
         startButton.addActionListener((ActionEvent event) -> {
@@ -248,6 +250,11 @@ public class Menu extends JFrame {
             pane2.add(new JCheckBox(taskEntry.getText()));
             pane2.validate();
             pane2.repaint();
+        });
+
+        XButton.addActionListener((ActionEvent event) -> {
+            frame.setVisible(false);
+            frame.dispose();
         });
 
         endSessionButton.addActionListener((ActionEvent event) -> {
@@ -276,10 +283,10 @@ public class Menu extends JFrame {
                     if(currentRounds==POMODORO_CYCLE){
                         endSession();
                     } else {
-                    frame.setVisible(false);
-                    frame.dispose();
-                    countDown.stop();
-                    breakMenu.startbreak(breakTime);
+                        frame.setVisible(false);
+                        frame.dispose();
+                        countDown.stop();
+                        breakMenu.startbreak(breakTime);
                     }
 
                 }
@@ -318,7 +325,7 @@ public class Menu extends JFrame {
             frame.pack();
             frame.setSize(new Dimension(810,500));
             frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
+            frame.setVisible(false);
             frame.setResizable(true);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         } else {
@@ -340,5 +347,4 @@ public class Menu extends JFrame {
         });
     }
 }
-
 

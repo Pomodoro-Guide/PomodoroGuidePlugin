@@ -8,7 +8,7 @@ public class TransparentTest extends JFrame {
     static JPanel jp;
 
     public static void changeStatus(){
-       jp.setVisible(false);
+        jp.setVisible(false);
     }
 
 
@@ -27,25 +27,19 @@ public class TransparentTest extends JFrame {
         setSize(2080, 1080);
         getContentPane().setLayout(new FlowLayout());
 
-              jp = new JPanel() {
+        jp = new JPanel() {
             public void paintComponent(Graphics g) {
                 //super.paintComponent(g);
                 Graphics2D g2 = (Graphics2D) g;
-                Paint gp = new GradientPaint(0, 0, new Color(154, 147, 147, 255), 0, 200, new Color(107, 104, 107, 255));
+                Paint gp = new GradientPaint(0, 0, new Color(119, 119, 119, 255), 0, 200, new Color(117, 114, 114, 255));
                 g2.setPaint(gp);
                 g2.fillRect(0, 0, getWidth(), getHeight());
             }
         };
         jp.setFocusable(false);
-        setOpacity(0.9f);
+        setOpacity(0.7f);
         setContentPane(jp);
         setVisible(true);
-        /*
-        if(status==false){
-            setVisible(false);
-            dispose();
         }
-         */
 
     }
-}

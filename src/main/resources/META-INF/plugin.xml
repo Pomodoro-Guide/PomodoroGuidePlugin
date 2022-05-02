@@ -22,8 +22,7 @@
 
         <group id="pomodoroGuide.groupActions" text="Pomodoro Guide">
             <add-to-group group-id="MainMenu" anchor="last"/>
-            <action class="com.tamusa.pomodoroGuide.startSession" id="pluginMenu" text="Start Session"/>
-            <action class="com.tamusa.pomodoroGuide.breakUI" id="breakMenu" text="Break UI"/>
+            <action class="com.tamusa.pomodoroGuide.startSession" id="pluginMenu" text="Session"/>
         </group>
 
 
